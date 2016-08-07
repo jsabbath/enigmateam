@@ -115,8 +115,9 @@ include('panelheader.php');
 			                                <?php echo $r->__GET('nvchdescripcion'); ?>
 			                            </td>
 			                            <td>
-			                                <a href="<?php echo $r->__GET('nvchlinkspot'); ?>"><?php echo $r->__GET('nvchlinkspot'); ?></a>
-			                                <!--iframe src="<?php echo $r->__GET('nvchlinkspot');?>" width='100%' height=auto frameborder="0" scrolling=yes marginwidth=2 marginheight=4 align=left>Video Oitch</iframe-->
+			                                <a href="<?php echo $r->__GET('nvchlinkspot');?>">
+			                                	<img src="../images/YouTube-icon-dark.png" alt="" style="width: 50px; height: 35px">
+			                                </a>
 			                            </td>
 			                            <td>
 			                                <a href="<?php echo $r->__GET('nvchlinkdownandr'); ?>"><?php echo $r->__GET('nvchlinkdownandr'); ?></a>

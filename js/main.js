@@ -19,7 +19,8 @@ jQuery(function($) {
 		if( $(window).scrollTop()>slideHeight ){
 			$('.main-nav').addClass('navbar-fixed-top');
 		} else {
-			$('.main-nav').removeClass('navbar-fixed-top');
+			//$('.main-nav').removeClass('navbar-fixed-top');
+			$('.main-nav').addClass('navbar-fixed-top');
 		}
 	});
 	
@@ -34,7 +35,7 @@ jQuery(function($) {
 	});
 
 	// User define function
-	function Scroll() {
+	/*function Scroll() {
 		var contentTop      =   [];
 		var contentBottom   =   [];
 		var winTop      =   $(window).scrollTop();
@@ -51,7 +52,7 @@ jQuery(function($) {
 				.eq(i).addClass('active');			
 			}
 		})
-	};
+	};*/
 
 	$('#tohash').on('click', function(){
 		$('html, body').animate({scrollTop: $(this.hash).offset().top - 5}, 1000);
@@ -86,7 +87,7 @@ jQuery(function($) {
 	
 
 	//Countdown
-	$('#features').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
+	/*$('#features').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
 		if (visible) {
 			$(this).find('.timer').each(function () {
 				var $this = $(this);
@@ -100,7 +101,7 @@ jQuery(function($) {
 			});
 			$(this).unbind('inview');
 		}
-	});
+	});*/
 
 	// Portfolio Single View
 	$('#portfolio').on('click','.folio-read-more',function(event){

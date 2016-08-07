@@ -45,14 +45,14 @@ class SkillpersonModel
 		}
 	}
 
-	public function Obtener($id)
+	public function Obtener($intidskillme)
 	{
 		try 
 		{
 			$stm = $this->pdo
 			          ->prepare("SELECT * FROM tb_skillme WHERE intidskillme = ?");
 			          
-			$stm->execute(array($id));
+			$stm->execute(array($intidskillme));
 			$r = $stm->fetch(PDO::FETCH_OBJ);
 
 			$gam = new Skillperson();
@@ -107,7 +107,7 @@ on tb_game.intidgame = tb_juego_persona.intidgame
 						intidpersona = ?,
 						nvchskillname  = ?, 
 						nvchporcentaje = ?
-				    WHERE intidskillme = ?";
+						WHERE intidskillme = ?";
 
 			$this->pdo->prepare($sql)
 			     ->execute(

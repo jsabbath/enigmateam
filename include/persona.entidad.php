@@ -6,6 +6,10 @@ class Persona
 	private $nvchapellido;
 	private $nvchdireccion;
 	private $nvchcorreo;
+
+	private $nvchfcbk;
+	private $nvchtwttr;
+	
 	private $nvchphone;
 
 	public function __GET($k){ return $this->$k; }

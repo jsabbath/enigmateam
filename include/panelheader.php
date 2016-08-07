@@ -57,6 +57,9 @@
 				<a href="adminpersona.php"><span class="glyphicon glyphicon-list-alt"></span> CRUD Personas</a>
 			</li>
 			<li class="">
+				<a href="personpicture.php"><span class="glyphicon glyphicon-list-alt"></span> Foto Personas</a>
+			</li>
+			<li class="">
 				<a href="admingame.php"><span class="glyphicon glyphicon-list-alt"></span> CRUD Game</a>
 			</li>
 			<li>

@@ -23,28 +23,29 @@
 		          <div class='col-sm-5'>
 		            <div class='team-member wow flipInY' data-wow-duration='1000ms' data-wow-delay='300ms'>
 		              <div class='member-image'>
-		                <img style='width:200px; margin: 0 auto' class='img-responsive' src='images/team/1.jpg' alt=''>
+		                <img style='width:200px; height: 200px; margin: 0 auto; border-radius:50%' class='img-responsive' src='images/team/".$registro['nvchphoto']."' alt=''>
 		              </div>
 		              <div class='member-info'>
 		                <h3 style='text-transform:uppercase'>".$registro['nvchnombres']."</h3>
 		                <h4 style='text-transform:uppercase; '>".$registro['nvchapellido']."</h4>
 		                <p>	
-		                	<label for=''>Dirección: ".$registro['nvchdireccion']."</label><br>
-		                	<label for=''>e-mail: ".$registro['nvchcorreo']."</label><br>
-		                	<label for=''>Cel: ".$registro['nvchphone']."</label>
+		                	<!--label for=''>Dirección: ".$registro['nvchdireccion']."</label><br-->
+		                	<label for=''><span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> ".$registro['nvchcorreo']."</label><br>
+		                	<label for=''><span class='glyphicon glyphicon-earphone' aria-hidden='true'></span> ".$registro['nvchphone']."</label>
 		                </p>
 		              </div>
 		              <div class='social-icons'>
 		                <ul>
-		                  <li><a style='border-radius:50%; background-color:#425592;' class='facebook' href='".$registro['nvchfcbk']."'><i class='fa fa-facebook'></i></a></li>
-		                  <li><a style='border-radius:50%; background-color: #32beed;' class='twitter' href='".$registro['nvchtwttr']."'><i class='fa fa-twitter'></i></a></li>
+		                  <li><a target='_blank' style='border-radius:50%; background-color:#425592;' class='facebook' href='".$registro['nvchfcbk']."'><i class='fa fa-facebook'></i></a></li>
+		                  <li><a target='_blank' style='border-radius:50%; background-color: #32beed;' class='twitter' href='".$registro['nvchtwttr']."'><i class='fa fa-twitter'></i></a></li>
 		                  <!--li><a class='googleplus' href='#'><i class='fa fa-googleplus'></i></a></li-->
 		                  <!--li><a class='dribbble' href='#''><i class='fa fa-dribbble'></i></a></li>
 		                  <li><a class='rss' href='#'><i class='fa fa-rss'></i></a></li-->
 		                </ul>
 		              </div>
 		              <div>
-		              	<input type='submit' value='Detalles' class='btn-loadmore' style='width:100%'>
+		              <br>
+		              	<a href='team.php' class='btn-loadmore' style='width:100%'> Ver a todos</a>
 		              </div>
 		            </div>
 		          </div>
@@ -185,11 +186,11 @@
   
   <br>
 
-    <div class="container">
+    <div class="container" style='margin-top:50px'>
       <div class="team-members">
         <div class="row">
           <?php dameparticipantes(); ?>
-	      <div class="col-sm-7">
+	      <div class="col-sm-7" >
 	          <div class="our-skills wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
 	          	<?php dameskills(); ?>
 	          </div>

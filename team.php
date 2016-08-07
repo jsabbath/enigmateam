@@ -12,6 +12,7 @@
           SELECT 
           *
           from tb_persona
+          ORDER BY `tb_persona`.`nvchapellido` ASC
           ";
           $resultado_consulta_mysql=mysql_query($consulta_mysql);
           while($registro = mysql_fetch_array($resultado_consulta_mysql)){
@@ -20,7 +21,7 @@
             <div class='col-sm-3' style='margin-bottom:50px'>
               <div class='team-member wow flipInY' data-wow-duration='1000ms' data-wow-delay='300ms'>
                 <div class='member-image'>
-                  <img class='img-responsive' width='100' src='images/team/1.jpg' alt=''>
+                  <img class='img-responsive' src='images/team/".$registro['nvchphoto']."' alt='' style='height:250px; width:250px; margin:0 auto; border-radius:50%'>
                 </div>
                 <div class='member-info'>
                   <input type='text' class='hidden' value='".$registro['intidpersona']." ' name='codigo'>
@@ -148,7 +149,8 @@
     </div><!--/#main-nav-->
   </header><!--/#home-->
 
-
+  <br>
+  <br>
   <section id="twitter" class="parallax">
     <div>
       <div class="container">

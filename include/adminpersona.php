@@ -15,6 +15,8 @@ if(isset($_REQUEST['action']))
 			$per->__SET('nvchapellido',$_REQUEST['nvchapellido']);
 			$per->__SET('nvchdireccion',$_REQUEST['nvchdireccion']);
 			$per->__SET('nvchcorreo', $_REQUEST['nvchcorreo']);
+			$per->__SET('nvchfcbk', $_REQUEST['nvchfcbk']);
+			$per->__SET('nvchtwttr', $_REQUEST['nvchtwttr']);
             $per->__SET('nvchphone', $_REQUEST['nvchphone']);
             //$alm->__SET('foto', $_REQUEST['foto']);
 			$model->Actualizar($per);
@@ -26,6 +28,8 @@ if(isset($_REQUEST['action']))
 			$per->__SET('nvchapellido',$_REQUEST['nvchapellido']);
 			$per->__SET('nvchdireccion',$_REQUEST['nvchdireccion']);
 			$per->__SET('nvchcorreo',$_REQUEST['nvchcorreo']);
+			$per->__SET('nvchfcbk', $_REQUEST['nvchfcbk']);
+			$per->__SET('nvchtwttr', $_REQUEST['nvchtwttr']);
             $per->__SET('nvchphone', $_REQUEST['nvchphone']);
 
 			$model->Registrar($per);
@@ -72,6 +76,10 @@ include('panelheader.php');
 				                    <input class="form-control" type="text" name="nvchdireccion" value="<?php echo $per->__GET('nvchdireccion'); ?>" style="width:100%;" required/>
 				                    <label for="">Correo</label>
 				                    <input class="form-control" type="mail" name="nvchcorreo" value="<?php echo $per->__GET('nvchcorreo'); ?>" style="width:100%;" required/>
+				                    <label for="">Facebook</label>
+				                    <input class="form-control" type="text" name="nvchfcbk" value="<?php echo $per->__GET('nvchfcbk'); ?>" style="width:100%;"/>
+				                    <label for="">Twitter</label>
+				                    <input class="form-control" type="text" name="nvchtwttr" value="<?php echo $per->__GET('nvchtwttr'); ?>" style="width:100%;" />
 				                    <label for="">Telefono</label>
 				                    <input class="form-control" type="text" name="nvchphone" value="<?php echo $per->__GET('nvchphone'); ?>" style="width:100%;" required/>
 				                    <br>
@@ -96,6 +104,7 @@ include('panelheader.php');
 							        <th >Direccion</th>
 							        <th >e-mail</th>
 							        <th >Telefono</th>
+							        <th >Social Media</th>
 							        <th >Opciones</th>
 							    </tr>
 							    </thead>
@@ -107,6 +116,10 @@ include('panelheader.php');
 			                            <!--td><?php //echo $r->__GET('Sexo') == 1 ? 'H' : 'F'; ?></td-->
 			                            <td><?php echo $r->__GET('nvchcorreo'); ?></td>
 			                            <td><?php echo $r->__GET('nvchphone'); ?></td>
+			                            <td>
+			                            	<a href="<?php echo $r->__GET('nvchfcbk'); ?>"><img src="../images/fb.jpg" alt="" width="30" height="30"></a>
+			                            	<a href="<?php echo $r->__GET('nvchtwttr'); ?>"><img src="../images/Twitter_icon-50x50.jpg" alt="" width="30" height="30"></a>
+			                            </td>
 			                            <td>
 			                                <a href="?action=editar&intidpersona=<?php echo $r->intidpersona; ?>">Editar</a>
 			                                <a href="?action=eliminar&intidpersona=<?php echo $r->intidpersona; ?>">Eliminar</a>

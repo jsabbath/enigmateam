@@ -34,6 +34,8 @@ class PersonaModel
 				$per->__SET('nvchapellido', $r->nvchapellido);
 				$per->__SET('nvchdireccion', $r->nvchdireccion);
 				$per->__SET('nvchcorreo', $r->nvchcorreo);
+				$per->__SET('nvchfcbk', $r->nvchfcbk);
+				$per->__SET('nvchtwttr', $r->nvchtwttr);
 				$per->__SET('nvchphone', $r->nvchphone);
 
 				$result[] = $per;
@@ -65,6 +67,8 @@ class PersonaModel
 			$per->__SET('nvchapellido', $r->nvchapellido);
 			$per->__SET('nvchdireccion', $r->nvchdireccion);
 			$per->__SET('nvchcorreo', $r->nvchcorreo);
+			$per->__SET('nvchfcbk', $r->nvchfcbk);
+			$per->__SET('nvchtwttr', $r->nvchtwttr);
 			$per->__SET('nvchphone', $r->nvchphone);
 
 			return $per;
@@ -97,6 +101,8 @@ class PersonaModel
 						nvchapellido = ?,
 						nvchdireccion  = ?, 
 						nvchcorreo = ?,
+						nvchfcbk = ?,
+						nvchtwttr = ?,
 						nvchphone = ?
 				    WHERE intidpersona = ?";
 
@@ -108,6 +114,8 @@ class PersonaModel
 					$data->__GET('nvchdireccion'),
 					$data->__GET('nvchcorreo'),
 					//agregado recien
+					$data->__GET('nvchfcbk'),
+					$data->__GET('nvchtwttr'),
 					$data->__GET('nvchphone'),
 					$data->__GET('intidpersona')
 					)
@@ -123,8 +131,8 @@ class PersonaModel
 
 		try 
 		{
-		$sql = "INSERT INTO tb_persona (nvchnombres,nvchapellido,nvchdireccion,nvchcorreo,nvchphone) 
-		        VALUES (?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO tb_persona (nvchnombres,nvchapellido,nvchdireccion,nvchcorreo,nvchfcbk,nvchtwttr,nvchphone) 
+		        VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		$this->pdo->prepare($sql)
 		     ->execute(
@@ -133,6 +141,8 @@ class PersonaModel
 				$data->__GET('nvchapellido'), 
 				$data->__GET('nvchdireccion'),
 				$data->__GET('nvchcorreo'),
+				$data->__GET('nvchfcbk'),
+				$data->__GET('nvchtwttr'),
 				$data->__GET('nvchphone')
 
 				)
@@ -143,3 +153,4 @@ class PersonaModel
 		}
 	}
 }
+

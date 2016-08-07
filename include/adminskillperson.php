@@ -10,10 +10,10 @@ if(isset($_REQUEST['action']))
 	switch($_REQUEST['action'])
 	{
 		case 'actualizar':
-			$per->__SET('intidskillme',$_REQUEST['intidskillme']);
 			$per->__SET('intidpersona',$_REQUEST['intidpersona']);
 			$per->__SET('nvchskillname',$_REQUEST['nvchskillname']);
             $per->__SET('nvchporcentaje', $_REQUEST['nvchporcentaje']);
+            $per->__SET('intidskillme',$_REQUEST['intidskillme']);
             //$alm->__SET('foto', $_REQUEST['foto']);
 			$model->Actualizar($per);
 			header('Location: adminskillperson.php');
@@ -134,19 +134,20 @@ include('panelheader.php');
 						<div class="panel-body">
 							<div class="col-md-6">
 								<form action="?action=<?php echo $per->intidskillme > 0 ? 'actualizar' : 'registrar'; ?>" method="post" class="pure-form pure-form-stacked" style="margin-bottom:30px;" enctype="multipart/form-data">
-				                    <input class="form-control" type="hidden" name="intidskillme" value="<?php echo $per->__GET('intidjuego_persona'); ?>" />
+				                    <input class="form-control" type="hidden" name="intidskillme" value="<?php echo $per->__GET('intidskillme'); ?>" />
+
 				                    <label for="">Persona</label>
-				                    <!--select persona-->
-				                    <select name="intidpersona" class="form-control" id="">
-                                          <?php dameusuario(); ?>
-                                    </select>
+					                    <!--select persona-->
+					                    <select name="intidpersona" class="form-control" id="">
+	                                          <?php dameusuario(); ?>
+	                                    </select>
                                     <!--END select persona-->
 				                    <label for="">Habilidad</label>
-				                    <!--select persona-->
-				                    <input class="form-control" type="text" name="nvchskillname" value="<?php echo $per->__GET('nvchskillname'); ?>" style="width:100%;" required/>
-                                    <!--END select persona-->
+					                    <!--select persona-->
+					                    <input class="form-control" type="text" name="nvchskillname" value="<?php echo $per->__GET('nvchskillname'); ?>" style="width:100%;" required/>
+	                                    <!--END select persona-->
 				                    <label for="">Dominio (%)</label>
-				                    <input class="form-control" type="number" min="1" max='100' name="nvchporcentaje" value="<?php echo $per->__GET('nvchporcentaje'); ?>" style="width:100%;" required/>
+				                    	<input class="form-control" type="number" min="1" max='100' name="nvchporcentaje" value="<?php echo $per->__GET('nvchporcentaje'); ?>" style="width:100%;" required/>
 				                    <br>
 				                    <button type="submit" class="btn btn-primary">Guardar</button>
 									<button type="reset" class="btn btn-danger">Limpiar</button>

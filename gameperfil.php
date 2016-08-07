@@ -3,6 +3,7 @@
   $idamegame = $_SESSION['codigo'] = $_POST['codcod'];
   
   include_once('include/connection.php');
+
   $servidor = 'localhost';
   $user = 'root';
   $pass = '';
@@ -14,11 +15,7 @@
 
   $consulta_mysql="
       SELECT
-        tb_game.intidgame,
-        tb_game.nvchnombre,
-        tb_game.nvchdescripcion,
-        tb_game.nvchbanner,
-        tb_game.nvchfecha
+        *
       from 
       tb_game
       where tb_game.intidgame = '$idamegame';
@@ -27,8 +24,25 @@
       while($registro = mysql_fetch_array($resultado_consulta_mysql)){
          $namegame = $registro['nvchnombre'];
          $descripcion = $registro['nvchdescripcion'];
+         $pitch = $registro['nvchlinkspot'];
    }
 
+
+
+function screenshootforgame(){
+  $idamegame = $_SESSION['codigo'] = $_POST['codcod'];//codgio de consulta
+  $consulta_mysql="
+      SELECT tb_screenshoot.img 
+        from tb_screenshoot 
+      where idgamename = '$idamegame';
+      ";
+      $resultado_consulta_mysql=mysql_query($consulta_mysql);
+      while($registro = mysql_fetch_array($resultado_consulta_mysql)){
+        echo '<div data-wow-duration="1000ms" data-wow-delay="300ms">
+                <img src="images/game/'.$registro['img'].'" data-wow-duration="1000ms" data-wow-delay="300ms">
+              </div>';
+   }
+}
 
 
 ?>
@@ -45,6 +59,11 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/lightbox.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+
+
   <link id="css-preset" href="css/presets/preset1.css" rel="stylesheet">
   <link href="css/responsive.css" rel="stylesheet">
 
@@ -90,28 +109,63 @@
         </div>
       </div>
     </div><!--/#main-nav-->
-  </header><!--/#home-->
+  </header><!--/#home-->	
 
-
-	<iframe width="100%" height="400" src="https://www.youtube.com/embed/-zcRT3BTOTU" frameborder="0" allowfullscreen></iframe>
-
+  
+  <br>
+  <br>
   <section id="blog">
     <div class="container">
       <div class="row">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
           <h2><?php echo $namegame; ?></h2>
-          <p><?php echo $descripcion; ?></p>
+          <div style='height: 10px;border-bottom: 3px solid gray;margin-bottom: 40px;'></div>
+          <div style='text-align: left;'><?php echo $descripcion; ?></div>
         </div>
       </div>
-
-      <div class="row">
+      <div class="row" style="margin-bottom: -100px">
         <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
           <h2 style='text-transform: uppercase;'>Capturas de Pantalla</h2>
-          <p>Estas son algunas imagenes y capturas</p>
-          <!--div>
-          	<iframe width="760" height="515" src="https://www.youtube.com/embed/-zcRT3BTOTU" frameborder="0" allowfullscreen></iframe>
-          </div-->
+          <div style='height: 10px;border-bottom: 3px solid gray;margin-bottom: 40px;'></div>
+          <!--style slider horizontal-->
+            <style type="text/css">
+              * {
+                box-sizing: border-box;
+              }
+
+              .slider {
+                  width: 100%;
+                  margin-top: 0px;
+              }
+
+              .slick-slide {
+                margin: 0px 20px;
+              }
+
+              .slick-slide img {
+                width: 100%;
+              }
+
+              .slick-prev:before,
+              .slick-next:before {
+                  color: gray;
+              }
+            </style><!-- ENDstyle slider horizontal-->
+        </div>
+      </div>
+      <div class="variable slider" style="margin-top: 100px" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <?php screenshootforgame(); ?>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+          <h2 style='text-transform: uppercase;'>Video</h2>
+          <div style='height: 10px;border-bottom: 3px solid gray;margin-bottom: 40px;'></div>
+          <?php echo $pitch; ?>
         </div>
       </div>
     </div>
+    
+    <br>
 <?php include('footerpage.php'); ?>
